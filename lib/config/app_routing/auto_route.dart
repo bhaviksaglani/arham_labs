@@ -12,5 +12,9 @@ class AppRouter extends $AppRouter {
           path: '/login_screen',
           page: LoginScreenRoute.page,
         ),
+        // AutoRoute(
+        //   path: '/otp_screen',
+        //   page: OtpScreenRoute.page,
+        // ),
       ];
 }

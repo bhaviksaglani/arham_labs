@@ -1,4 +1,7 @@
+import 'package:arham_labs_project/config/app_routing/auto_route.gr.dart';
+import 'package:arham_labs_project/features/login/view/otp_page.dart';
 import 'package:arham_labs_project/widgets/custom_button.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -49,7 +52,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     initialCountryCode: 'IN',
                     onChanged: (phone) {
-                      auth.updatePhoneNumber(phone.toString());
+                      auth.updatePhoneNumber(phone.number);
                     },
                   ),
                   const Spacer(),
@@ -58,6 +61,13 @@ class LoginScreen extends StatelessWidget {
                     child: CustomButton(
                       onPressed: () {
                         auth.login();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                OtpPage(phoneNumber: auth.phoneNumber),
+                          ),
+                        );
                       },
                       title: 'Get OTP',
                     ),

@@ -9,6 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:arham_labs_project/features/login/view/login_page.dart';
+import 'package:arham_labs_project/features/login/view/otp_page.dart';
 import 'package:auto_route/auto_route.dart';
 
 abstract class $AppRouter extends RootStackRouter {
